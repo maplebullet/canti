@@ -49,10 +49,6 @@ go mod download
 
 # 构建可执行文件
 go build -o canti .
-
-# 或使用构建脚本构建所有平台版本
-chmod +x build.sh
-./build.sh
 ```
 
 **在Windows上：**
@@ -65,6 +61,19 @@ go build -o canti.exe .
 ```
 
 构建完成后，会在当前目录生成可执行文件（Linux/macOS为`canti`，Windows为`canti.exe`）
+
+**高级：使用构建脚本构建多平台版本**
+
+项目提供了 `build.sh` 脚本，可以一次性构建Windows和Linux的amd64/386版本。需要先安装 `upx` 工具用于压缩二进制文件。
+
+```bash
+chmod +x build.sh
+./build.sh
+```
+
+构建后的文件将在 `build/` 目录下，支持的平台包括：
+- Windows (amd64/386)
+- Linux (amd64/386)
 
 # 使用
 
