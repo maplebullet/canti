@@ -10,6 +10,62 @@
 
 使用Go语言编写，支持多个平台使用
 
+# 下载与安装
+
+## 方式一：下载预编译版本（推荐）
+
+前往 [Releases页面](https://github.com/lensferno/canti/releases) 下载对应平台的预编译版本。
+
+## 方式二：从源码构建
+
+### 前提条件
+
+- 已安装 Go 1.20 或更高版本（[下载Go](https://golang.org/dl/)）
+
+### 下载项目
+
+**方法1：使用Git克隆（推荐）**
+```bash
+git clone https://github.com/lensferno/canti.git
+cd canti
+```
+
+**方法2：下载ZIP压缩包**
+1. 访问项目主页：https://github.com/lensferno/canti
+2. 点击绿色的 "Code" 按钮
+3. 选择 "Download ZIP"
+4. 解压下载的 `canti-main.zip` 文件
+5. 进入解压后的目录：
+   ```bash
+   cd canti-main
+   ```
+
+### 构建项目
+
+**在Linux/macOS上：**
+```bash
+# 下载依赖
+go mod download
+
+# 构建可执行文件
+go build -o canti .
+
+# 或使用构建脚本构建所有平台版本
+chmod +x build.sh
+./build.sh
+```
+
+**在Windows上：**
+```bash
+# 下载依赖
+go mod download
+
+# 构建可执行文件
+go build -o canti.exe .
+```
+
+构建完成后，会在当前目录生成可执行文件（Linux/macOS为`canti`，Windows为`canti.exe`）
+
 # 使用
 
 - 使用web方法认证，用户名（学号）为202100000000，密码为12450password：
