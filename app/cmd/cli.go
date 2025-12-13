@@ -94,7 +94,7 @@ var loginFlags = []cli.Flag{
 		Name:        "method",
 		Aliases:     []string{"m"},
 		Value:       "web",
-		Usage:       "认证方法，可选的值为web认证（仅无线网络用户）或pppoe认证（仅有线网络用户，功能尚未实现），默认使用web认证，当一种失败后会自动切换另外一种方式重试（当前仅支持web认证）",
+		Usage:       "认证方法，可选的值：web（WUST原系统）、srun（深澜SRun系统）、pppoe（PPPoE拨号，尚未实现），默认使用web认证",
 		Destination: &globalConfig.Method,
 	},
 	&cli.BoolFlag{

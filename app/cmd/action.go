@@ -4,6 +4,7 @@ import (
 	"canti/app/cmd/interaction"
 	"canti/app/conf"
 	"canti/app/gui"
+	appservice "canti/app/service"
 	"canti/app/service/job"
 	"canti/app/webui"
 	"encoding/json"
@@ -186,7 +187,23 @@ func login(c *cli.Context) error {
 
 func _loginWithConfig(config *conf.Config) error {
 	srv.SetConfig(*config)
-	onlineStatus, err := srv.WebLogin()
+	
+	var onlineStatus *appservice.OnlineStatus
+	var err error
+	
+	// 根据认证方式选择不同的登录方法
+	switch config.Method {
+	case conf.LoginSRunMethod:
+		fmt.Println(ansi.Color("使用SRun认证系统登录...", ansi.Yellow))
+		onlineStatus, err = srv.SRunLogin()
+	case conf.LoginWebMethod:
+		fmt.Println(ansi.Color("使用Web认证系统登录...", ansi.Yellow))
+		onlineStatus, err = srv.WebLogin()
+	default:
+		fmt.Println(ansi.Color("使用默认Web认证系统登录...", ansi.Yellow))
+		onlineStatus, err = srv.WebLogin()
+	}
+	
 	if err != nil {
 		fmt.Printf(ansi.Color("错误：%s\n", ansi.Red), err.Error())
 		return err
