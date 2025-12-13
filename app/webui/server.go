@@ -95,8 +95,6 @@ func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
 		status, err = s.service.SRunLogin()
 	case conf.LoginWebMethod:
 		status, err = s.service.WebLogin()
-	case conf.LoginPPPOEMethod:
-		status, err = s.service.PPPoELogin()
 	default:
 		s.sendJSON(w, Response{Success: false, Message: "不支持的认证方法"})
 		return
@@ -136,8 +134,6 @@ func (s *Server) handleLogout(w http.ResponseWriter, r *http.Request) {
 		err = s.service.SRunLogout()
 	case conf.LoginWebMethod:
 		err = s.service.WebLogout()
-	case conf.LoginPPPOEMethod:
-		err = s.service.PPPoELogout()
 	default:
 		err = fmt.Errorf("未知的认证方法")
 	}
@@ -172,8 +168,6 @@ func (s *Server) handleStatus(w http.ResponseWriter, r *http.Request) {
 		status, err = s.service.SRunGetOnlineStatus()
 	case conf.LoginWebMethod:
 		status, err = s.service.WebGetOnlineStatus()
-	case conf.LoginPPPOEMethod:
-		status, err = s.service.PPPoEGetOnlineStatus()
 	default:
 		err = fmt.Errorf("未知的认证方法")
 	}
