@@ -325,22 +325,39 @@ func (s *Service) buildInfo(username, password, ip string, acId int, token strin
 		"acid":     acId,
 		"enc_ver":  "srun_bx1",
 	}
-	jsonBytes, _ := json.Marshal(info)
+	jsonBytes, err := json.Marshal(info)
+	if err != nil {
+		// Fallback to empty if marshal fails (shouldn't happen with basic types)
+		jsonBytes = []byte("{}")
+	}
 	encoded := s.xEncode(string(jsonBytes), token)
 	return "{SRBX1}" + s.base64Encode(encoded)
 }
 
+// Srun portal constants for checksum calculation
+const (
+	srunChecksumN    = "200" // n parameter for checksum
+	srunChecksumType = "1"   // type parameter for checksum
+)
+
 // buildChecksum builds the SHA1 checksum
 func (s *Service) buildChecksum(token, username, passwordMd5 string, acId int, ip, info string) string {
 	// Checksum format: token + username + token + hmd5 + token + acid + token + ip + token + n + token + type + token + info
-	data := fmt.Sprintf("%s%s%s%s%s%d%s%s%s200%s1%s%s",
-		token, username, token, passwordMd5, token, acId, token, ip, token, token, token, info)
+	data := fmt.Sprintf("%s%s%s%s%s%d%s%s%s%s%s%s%s%s",
+		token, username, token, passwordMd5, token, acId, token, ip, token, srunChecksumN, token, srunChecksumType, token, info)
 	h := sha1.New()
 	h.Write([]byte(data))
 	return hex.EncodeToString(h.Sum(nil))
 }
 
+// XEncode magic numbers (XXTEA algorithm constants)
+// These are standard XXTEA cipher constants used by the Srun portal
+const (
+	xEncodeDelta = uint32(0x9E3779B9) // Golden ratio derived constant for XXTEA
+)
+
 // xEncode implements the XEncode algorithm used by Srun portal
+// This is a modified XXTEA block cipher used by Srun for info parameter encryption
 func (s *Service) xEncode(str, key string) string {
 	if str == "" {
 		return ""
@@ -356,12 +373,11 @@ func (s *Service) xEncode(str, key string) string {
 	n := len(v) - 1
 	z := v[n]
 	y := v[0]
-	c := uint32(0x86014019) | uint32(0x183639A0)
 	d := uint32(0)
 	q := 6 + 52/(n+1)
 
 	for q > 0 {
-		d += c & (uint32(0x8CE0D9BF) | uint32(0x731F2640))
+		d += xEncodeDelta
 		e := (d >> 2) & 3
 		var p int
 		for p = 0; p < n; p++ {
@@ -426,8 +442,10 @@ func (s *Service) bytesToStr(data []uint32, includeLen bool) string {
 }
 
 // base64Encode performs Srun-specific base64 encoding
+// The Srun portal uses a custom base64 alphabet for encoding
 func (s *Service) base64Encode(str string) string {
-	const alpha = "LVoJPiCN2R8G90yg+hmFHuacZ1OWMnrsSTXkYpUq/3teleQB4567teleQB4Dwtele"
+	// Srun portal custom base64 alphabet (64 characters)
+	const alpha = "LVoJPiCN2R8G90yg+hmFHuacZ1OWMnrsSTXkYpUq/3dlbfE47w6xezA9BFIKtfj5"
 	result := ""
 	length := len(str)
 
