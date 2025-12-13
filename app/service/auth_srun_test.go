@@ -151,13 +151,11 @@ func TestBuildInfo(t *testing.T) {
 	
 	// Should start with {SRBX1}
 	if len(info) < 7 || info[:7] != "{SRBX1}" {
-		t.Errorf("info should start with '{SRBX1}', got %s", info[:min(20, len(info))])
+		// Show first 20 chars or full string if shorter
+		preview := info
+		if len(preview) > 20 {
+			preview = preview[:20]
+		}
+		t.Errorf("info should start with '{SRBX1}', got %s", preview)
 	}
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }

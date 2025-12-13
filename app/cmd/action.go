@@ -212,17 +212,18 @@ func _loginWithConfig(config *conf.Config) error {
 }
 
 func logout(c *cli.Context) error {
-	err := srv.WebLogout()
+	err := srv.Logout()
 	if err != nil {
 		fmt.Printf(ansi.Color("错误：%s\n", ansi.Red), err.Error())
 		return err
 	}
 
+	fmt.Println(ansi.Color("已退出登录", ansi.Cyan))
 	return nil
 }
 
 func status(c *cli.Context) error {
-	onlineStatus, err := srv.WebGetOnlineStatus()
+	onlineStatus, err := srv.GetOnlineStatus()
 	if err != nil {
 		fmt.Printf(ansi.Color("错误：%s\n", ansi.Red), err.Error())
 		return err

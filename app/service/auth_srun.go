@@ -15,10 +15,11 @@ import (
 	"time"
 )
 
-// Srun portal configuration
+// Srun portal configuration constants
 // Default values can be overridden via config
 const (
 	defaultSrunBaseUrl = "http://10.145.255.21"
+	defaultSrunAcId    = 4
 	srunPortalPath     = "/cgi-bin/srun_portal"
 	srunGetChallenge   = "/cgi-bin/get_challenge"
 )
@@ -106,7 +107,7 @@ func (s *Service) SrunLogin() (*OnlineStatus, error) {
 		baseUrl = s.conf.SrunBaseUrl
 	}
 
-	acId := 4
+	acId := defaultSrunAcId
 	if s.conf.AcId > 0 {
 		acId = s.conf.AcId
 	}
@@ -205,7 +206,7 @@ func (s *Service) SrunLogout() error {
 		baseUrl = s.conf.SrunBaseUrl
 	}
 
-	acId := 4
+	acId := defaultSrunAcId
 	if s.conf.AcId > 0 {
 		acId = s.conf.AcId
 	}
@@ -303,10 +304,14 @@ func (s *Service) parseJSONP(response string) (string, error) {
 	return "", ecode.NewErrCode(-1, "invalid JSONP response format")
 }
 
-// generateCallback generates a jQuery-style callback name
+// generateCallback generates a jQuery-style callback name for JSONP requests.
+// The format mimics jQuery's $.ajax callback naming: "jQuery{random}_{timestamp}"
+// where random is a pseudo-random number derived from the current time.
 func (s *Service) generateCallback() string {
 	timestamp := time.Now().UnixMilli()
-	return fmt.Sprintf("jQuery%d_%d", timestamp/1000*1000000+int64(time.Now().Nanosecond()%1000000), timestamp)
+	// Generate a pseudo-random number by combining seconds and nanoseconds
+	random := timestamp/1000*1000000 + int64(time.Now().Nanosecond()%1000000)
+	return fmt.Sprintf("jQuery%d_%d", random, timestamp)
 }
 
 // encodePassword encodes password using HMAC-MD5 with token

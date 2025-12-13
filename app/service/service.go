@@ -55,3 +55,23 @@ func (s *Service) Login() (*OnlineStatus, error) {
 		return s.WebLogin()
 	}
 }
+
+// Logout performs logout based on the configured method
+func (s *Service) Logout() error {
+	switch s.conf.Method {
+	case conf.LoginSrunMethod:
+		return s.SrunLogout()
+	case conf.LoginWebMethod:
+		fallthrough
+	default:
+		return s.WebLogout()
+	}
+}
+
+// GetOnlineStatus gets the online status based on the configured method
+// Note: Srun portal doesn't provide a status API, so it falls back to web status
+func (s *Service) GetOnlineStatus() (*OnlineStatus, error) {
+	// Srun portal doesn't have a dedicated status endpoint
+	// Fall back to web status for now
+	return s.WebGetOnlineStatus()
+}
