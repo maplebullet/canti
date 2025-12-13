@@ -19,6 +19,7 @@ type Server struct {
 	port         int
 	mu           sync.RWMutex
 	currentUser  string
+	currentMethod string
 	isLoggedIn   bool
 }
 
@@ -31,12 +32,14 @@ func NewServer(port int) *Server {
 	return &Server{
 		service: service.NewService(config),
 		port:    port,
+		currentMethod: conf.LoginWebMethod,
 	}
 }
 
 type LoginRequest struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
+	Method   string `json:"method"` // web, srun, pppoe
 }
 
 type Response struct {
@@ -62,16 +65,43 @@ func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// 如果没有指定方法，使用默认方法
+	method := req.Method
+	if method == "" {
+		method = conf.LoginWebMethod
+	}
+
+	// 验证方法是否有效
+	if method != conf.LoginWebMethod && method != conf.LoginSRunMethod && method != conf.LoginPPPOEMethod {
+		s.sendJSON(w, Response{Success: false, Message: "无效的认证方法"})
+		return
+	}
+
 	config := conf.Config{
 		Username:  req.Username,
 		Password:  req.Password,
-		Method:    conf.LoginWebMethod,
+		Method:    method,
 		Reconnect: false,
 		Silence:   true,
 	}
 	s.service.SetConfig(config)
 
-	status, err := s.service.WebLogin()
+	var status interface{}
+	var err error
+
+	// 根据方法选择不同的登录函数
+	switch method {
+	case conf.LoginSRunMethod:
+		status, err = s.service.SRunLogin()
+	case conf.LoginWebMethod:
+		status, err = s.service.WebLogin()
+	case conf.LoginPPPOEMethod:
+		status, err = s.service.PPPoELogin()
+	default:
+		s.sendJSON(w, Response{Success: false, Message: "不支持的认证方法"})
+		return
+	}
+
 	if err != nil {
 		s.sendJSON(w, Response{Success: false, Message: fmt.Sprintf("登录失败: %s", err.Error())})
 		return
@@ -79,6 +109,7 @@ func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
 
 	s.mu.Lock()
 	s.currentUser = req.Username
+	s.currentMethod = method
 	s.isLoggedIn = true
 	s.mu.Unlock()
 
@@ -95,7 +126,22 @@ func (s *Server) handleLogout(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := s.service.WebLogout()
+	s.mu.RLock()
+	method := s.currentMethod
+	s.mu.RUnlock()
+
+	var err error
+	switch method {
+	case conf.LoginSRunMethod:
+		err = s.service.SRunLogout()
+	case conf.LoginWebMethod:
+		err = s.service.WebLogout()
+	case conf.LoginPPPOEMethod:
+		err = s.service.PPPoELogout()
+	default:
+		err = fmt.Errorf("未知的认证方法")
+	}
+
 	if err != nil {
 		s.sendJSON(w, Response{Success: false, Message: fmt.Sprintf("登出失败: %s", err.Error())})
 		return
@@ -114,7 +160,24 @@ func (s *Server) handleStatus(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	status, err := s.service.WebGetOnlineStatus()
+	s.mu.RLock()
+	method := s.currentMethod
+	s.mu.RUnlock()
+
+	var status interface{}
+	var err error
+
+	switch method {
+	case conf.LoginSRunMethod:
+		status, err = s.service.SRunGetOnlineStatus()
+	case conf.LoginWebMethod:
+		status, err = s.service.WebGetOnlineStatus()
+	case conf.LoginPPPOEMethod:
+		status, err = s.service.PPPoEGetOnlineStatus()
+	default:
+		err = fmt.Errorf("未知的认证方法")
+	}
+
 	if err != nil {
 		s.sendJSON(w, Response{Success: false, Message: fmt.Sprintf("获取状态失败: %s", err.Error())})
 		return
