@@ -49,6 +49,12 @@ var allCommands = []*cli.Command{
 		},
 		Action: startWebUI,
 	},
+	{
+		Name:    "gui",
+		Aliases: []string{"g"},
+		Usage:   "启动图形界面（仅Windows/Linux桌面环境）",
+		Action:  startGUI,
+	},
 }
 
 type Config struct {

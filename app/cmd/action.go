@@ -3,6 +3,7 @@ package cmd
 import (
 	"canti/app/cmd/interaction"
 	"canti/app/conf"
+	"canti/app/gui"
 	"canti/app/service/job"
 	"canti/app/webui"
 	"encoding/json"
@@ -228,4 +229,12 @@ func startWebUI(c *cli.Context) error {
 	
 	server := webui.NewServer(port)
 	return server.Start()
+}
+
+func startGUI(c *cli.Context) error {
+	fmt.Printf(ansi.Color("启动图形界面...\n", ansi.Cyan))
+	
+	g := gui.NewGUI()
+	g.Start()
+	return nil
 }
