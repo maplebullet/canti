@@ -4,3 +4,5 @@ Config:
   password: ''
   method: 'web'
   reconnect: true
+  srunBaseUrl: ''
+  acId: 4

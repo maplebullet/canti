@@ -3,5 +3,7 @@
   "username": "",
   "password": "",
   "method": "web",
-  "reconnect": true
+  "reconnect": true,
+  "srunBaseUrl": "",
+  "acId": 4
 }

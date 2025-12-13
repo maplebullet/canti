@@ -6,7 +6,7 @@
 
 全自动的wust武科大校园网认证客户端（当然，是第三方的）
 
-支持使用web方式认证和pppoe拨号（尚未实现）
+支持使用web方式认证、srun深澜认证和pppoe拨号（尚未实现）
 
 使用Go语言编写，支持多个平台使用
 
@@ -15,6 +15,11 @@
 - 使用web方法认证，用户名（学号）为202100000000，密码为12450password：
   ``` bash
   ./canti login --username 202100000000 --password 12450password -m web
+  ```
+
+- 使用Srun深澜认证（适用于使用深澜系统的校园网）：
+  ``` bash
+  ./canti login --username 202100000000 --password 12450password -m srun --srun-url http://10.145.255.21 --ac-id 4
   ```
 
 - 按照指定的配置进行登录认证：

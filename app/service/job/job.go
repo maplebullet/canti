@@ -28,7 +28,7 @@ func (l *LoginStatusKeepingJob) Run() {
 		}
 
 		fmt.Println(ansi.Color("网络疑似断开，尝试重新登录", ansi.Yellow))
-		onlineStatus, err := l.srv.WebLogin()
+		onlineStatus, err := l.srv.Login()
 		if err != nil {
 			fmt.Printf(ansi.Color("错误：%s\n", ansi.Yellow), err.Error())
 			continue

@@ -39,3 +39,19 @@ func (s *Service) SetConfig(config conf.Config) *Service {
 	*s.conf = config
 	return s
 }
+
+func (s *Service) GetConfig() *conf.Config {
+	return s.conf
+}
+
+// Login performs login based on the configured method
+func (s *Service) Login() (*OnlineStatus, error) {
+	switch s.conf.Method {
+	case conf.LoginSrunMethod:
+		return s.SrunLogin()
+	case conf.LoginWebMethod:
+		fallthrough
+	default:
+		return s.WebLogin()
+	}
+}

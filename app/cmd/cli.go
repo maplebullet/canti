@@ -38,12 +38,14 @@ var allCommands = []*cli.Command{
 }
 
 type Config struct {
-	ConfigFile string `json:"configFile" yaml:"configFile"`
-	Username   string `json:"username" yaml:"username"`
-	Password   string `json:"password" yaml:"password"`
-	Method     string `json:"method" yaml:"method"`
-	Reconnect  bool   `json:"reconnect" yaml:"reconnect"`
-	Silence    bool   `json:"silence" yaml:"silence"`
+	ConfigFile  string `json:"configFile" yaml:"configFile"`
+	Username    string `json:"username" yaml:"username"`
+	Password    string `json:"password" yaml:"password"`
+	Method      string `json:"method" yaml:"method"`
+	Reconnect   bool   `json:"reconnect" yaml:"reconnect"`
+	Silence     bool   `json:"silence" yaml:"silence"`
+	SrunBaseUrl string `json:"srunBaseUrl" yaml:"srunBaseUrl"`
+	AcId        int    `json:"acId" yaml:"acId"`
 }
 
 var globalConfig = &Config{}
@@ -74,7 +76,7 @@ var loginFlags = []cli.Flag{
 		Name:        "method",
 		Aliases:     []string{"m"},
 		Value:       "web",
-		Usage:       "认证方法，可选的值为web认证（仅无线网络用户）或pppoe认证（仅有线网络用户，功能尚未实现），默认使用web认证，当一种失败后会自动切换另外一种方式重试（当前仅支持web认证）",
+		Usage:       "认证方法，可选的值为web认证（仅无线网络用户）、pppoe认证（仅有线网络用户，功能尚未实现）或srun（深澜认证），默认使用web认证",
 		Destination: &globalConfig.Method,
 	},
 	&cli.BoolFlag{
@@ -90,6 +92,18 @@ var loginFlags = []cli.Flag{
 		Value:       false,
 		Usage:       "是否静默执行，设置为true时，仅会在出现错误时输出信息",
 		Destination: &globalConfig.Silence,
+	},
+	&cli.StringFlag{
+		Name:        "srun-url",
+		Value:       "",
+		Usage:       "Srun深澜认证门户地址（如：http://10.145.255.21），仅在method为srun时生效",
+		Destination: &globalConfig.SrunBaseUrl,
+	},
+	&cli.IntFlag{
+		Name:        "ac-id",
+		Value:       4,
+		Usage:       "Srun深澜认证的ac_id参数（默认：4），仅在method为srun时生效",
+		Destination: &globalConfig.AcId,
 	},
 }
 

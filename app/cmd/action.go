@@ -3,11 +3,12 @@ package cmd
 import (
 	"canti/app/cmd/interaction"
 	"canti/app/conf"
+	"canti/app/service"
 	"canti/app/service/job"
 	"encoding/json"
 	"fmt"
 	"github.com/AlecAivazis/survey/v2"
-	"github.com/kardianos/service"
+	kardianos "github.com/kardianos/service"
 	"github.com/mgutz/ansi"
 	"github.com/spf13/viper"
 	"github.com/urfave/cli/v2"
@@ -64,7 +65,7 @@ func createService(c *cli.Context) error {
 		return err
 	}
 
-	srvConfig := service.Config{
+	srvConfig := kardianos.Config{
 		Name:        "canti-auto-service",
 		DisplayName: "canti",
 		Description: "全自动的must武科大校园网认证客户端",
@@ -72,7 +73,7 @@ func createService(c *cli.Context) error {
 		Executable:  os.Args[0],
 	}
 
-	s, err := service.New(nil, &srvConfig)
+	s, err := kardianos.New(nil, &srvConfig)
 	if err != nil {
 		fmt.Printf(ansi.Color("错误：%s\n", ansi.Red), err.Error())
 		return err
@@ -110,11 +111,11 @@ func createService(c *cli.Context) error {
 }
 
 func removeService(c *cli.Context) error {
-	srvConfig := service.Config{
+	srvConfig := kardianos.Config{
 		Name: "canti-auto-service",
 	}
 
-	s, err := service.New(nil, &srvConfig)
+	s, err := kardianos.New(nil, &srvConfig)
 	if err != nil {
 		fmt.Printf(ansi.Color("错误：%s\n", ansi.Red), err.Error())
 		return err
@@ -169,6 +170,8 @@ func login(c *cli.Context) error {
 		config.Method = _readCliParam(c, "method", conf.LoginWebMethod)
 		config.Reconnect = _readCliParam(c, "reconnect", true)
 		config.Silence = _readCliParam(c, "silence", false)
+		config.SrunBaseUrl = _readCliParam(c, "srun-url", "")
+		config.AcId = _readCliParam(c, "ac-id", 4)
 	}
 
 	srv.SetConfig(config)
@@ -184,7 +187,19 @@ func login(c *cli.Context) error {
 
 func _loginWithConfig(config *conf.Config) error {
 	srv.SetConfig(*config)
-	onlineStatus, err := srv.WebLogin()
+
+	var onlineStatus *service.OnlineStatus
+	var err error
+
+	switch config.Method {
+	case conf.LoginSrunMethod:
+		onlineStatus, err = srv.SrunLogin()
+	case conf.LoginWebMethod:
+		fallthrough
+	default:
+		onlineStatus, err = srv.WebLogin()
+	}
+
 	if err != nil {
 		fmt.Printf(ansi.Color("错误：%s\n", ansi.Red), err.Error())
 		return err
