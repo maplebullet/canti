@@ -35,6 +35,20 @@ var allCommands = []*cli.Command{
 		Usage:   "查看当前登陆状态",
 		Action:  status,
 	},
+	{
+		Name:    "webui",
+		Aliases: []string{"web", "w"},
+		Usage:   "启动Web界面（浏览器访问）",
+		Flags: []cli.Flag{
+			&cli.IntFlag{
+				Name:    "port",
+				Aliases: []string{"p"},
+				Value:   8080,
+				Usage:   "Web服务器端口",
+			},
+		},
+		Action: startWebUI,
+	},
 }
 
 type Config struct {

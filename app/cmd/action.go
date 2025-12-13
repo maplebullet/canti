@@ -4,6 +4,7 @@ import (
 	"canti/app/cmd/interaction"
 	"canti/app/conf"
 	"canti/app/service/job"
+	"canti/app/webui"
 	"encoding/json"
 	"fmt"
 	"github.com/AlecAivazis/survey/v2"
@@ -218,4 +219,13 @@ func status(c *cli.Context) error {
 	fmt.Println("状态：在线")
 	fmt.Printf("用户信息：%s\n", string(jsonBytes))
 	return nil
+}
+
+func startWebUI(c *cli.Context) error {
+	port := c.Int("port")
+	fmt.Printf(ansi.Color("启动Web界面...\n", ansi.Cyan))
+	fmt.Println(ansi.Color("按 Ctrl+C 停止服务器", ansi.Yellow))
+	
+	server := webui.NewServer(port)
+	return server.Start()
 }
