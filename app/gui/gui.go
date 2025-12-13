@@ -5,7 +5,6 @@ package gui
 import (
 	"canti/app/conf"
 	"canti/app/service"
-	"encoding/json"
 	"fmt"
 	
 	"fyne.io/fyne/v2/app"
@@ -141,7 +140,6 @@ func (g *GUI) checkStatus() {
 }
 
 func (g *GUI) displayStatus(status *service.OnlineStatus) {
-	jsonBytes, _ := json.MarshalIndent(status, "", "  ")
 	info := fmt.Sprintf("姓名: %s\n账号: %s\nIP: %s\nMAC: %s\n已用流量: %s",
 		status.Name, status.Username, status.Ip, status.Mac, status.Bytes)
 	g.infoLabel.SetText(info)

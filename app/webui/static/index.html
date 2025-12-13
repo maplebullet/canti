@@ -343,16 +343,23 @@
             document.getElementById('loading').className = show ? 'loading show' : 'loading';
         }
         
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
         function showStatusInfo(data) {
             const info = document.getElementById('status-info');
+            const timeStr = data.Time ? new Date(data.Time).toLocaleString('zh-CN') : 'N/A';
             info.innerHTML = `
                 <strong>在线状态信息</strong>
-                姓名: ${data.Name || 'N/A'}<br>
-                账号: ${data.Username || 'N/A'}<br>
-                IP地址: ${data.Ip || 'N/A'}<br>
-                MAC地址: ${data.Mac || 'N/A'}<br>
-                已用流量: ${data.Bytes || 'N/A'}<br>
-                登录时间: ${data.Time ? new Date(data.Time).toLocaleString('zh-CN') : 'N/A'}
+                姓名: ${escapeHtml(data.Name || 'N/A')}<br>
+                账号: ${escapeHtml(data.Username || 'N/A')}<br>
+                IP地址: ${escapeHtml(data.Ip || 'N/A')}<br>
+                MAC地址: ${escapeHtml(data.Mac || 'N/A')}<br>
+                已用流量: ${escapeHtml(data.Bytes || 'N/A')}<br>
+                登录时间: ${escapeHtml(timeStr)}
             `;
             info.style.display = 'block';
         }
