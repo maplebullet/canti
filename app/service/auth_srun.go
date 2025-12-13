@@ -231,12 +231,18 @@ func (s *Service) srunParseJSONP(body string) (*SRunLoginResp, error) {
 
 // SRunLogout SRun系统登出
 func (s *Service) SRunLogout() error {
+	// 获取客户端IP
+	_, clientIP, err := s.srunGetChallenge()
+	if err != nil {
+		return err
+	}
+
 	params := url.Values{}
 	params.Add("callback", "jQuery_callback")
 	params.Add("action", "logout")
 	params.Add("username", s.conf.Username)
+	params.Add("ip", clientIP)
 	params.Add("ac_id", srunDefaultAcId)
-	params.Add("ip", "")
 	params.Add("_", fmt.Sprintf("%d", time.Now().UnixMilli()))
 
 	logoutUrl := fmt.Sprintf("%s?%s", srunPortalUrl, params.Encode())
@@ -254,7 +260,7 @@ func (s *Service) SRunLogout() error {
 	}
 
 	if loginResp.Ecode != 0 {
-		return fmt.Errorf("logout failed: %s", loginResp.ErrorMsg)
+		return ecode.NewErrCode(loginResp.Ecode, loginResp.ErrorMsg)
 	}
 
 	return nil
@@ -262,10 +268,48 @@ func (s *Service) SRunLogout() error {
 
 // SRunGetOnlineStatus SRun系统获取在线状态
 func (s *Service) SRunGetOnlineStatus() (*OnlineStatus, error) {
-	// SRun系统的状态查询可能需要根据实际情况实现
-	// 暂时返回基本信息
+	// 获取客户端IP和在线状态
+	_, clientIP, err := s.srunGetChallenge()
+	if err != nil {
+		return nil, err
+	}
+
+	// 构建状态查询URL (使用与登录相同的challenge接口来检测在线状态)
+	// 如果用户在线，challenge响应中的online_ip字段会有值
+	params := url.Values{}
+	params.Add("callback", "jQuery_callback")
+	params.Add("username", s.conf.Username)
+	params.Add("ip", clientIP)
+	params.Add("_", fmt.Sprintf("%d", time.Now().UnixMilli()))
+
+	reqUrl := fmt.Sprintf("%s?%s", srunChallengeUrl, params.Encode())
+
+	resp, err := s.requester.R().Get(reqUrl)
+	if err != nil {
+		return nil, ecode.RequestErr
+	}
+
+	body := resp.String()
+	start := strings.Index(body, "(")
+	end := strings.LastIndex(body, ")")
+	if start == -1 || end == -1 {
+		return nil, fmt.Errorf("invalid JSONP response")
+	}
+	
+	jsonStr := body[start+1 : end]
+
+	var challengeResp SRunChallengeResp
+	if err := json.Unmarshal([]byte(jsonStr), &challengeResp); err != nil {
+		return nil, err
+	}
+
+	if challengeResp.Ecode != 0 {
+		return nil, ecode.NewErrCode(challengeResp.Ecode, challengeResp.ErrorMsg)
+	}
+
 	return &OnlineStatus{
 		Time:     time.Now(),
+		Ip:       challengeResp.OnlineIP,
 		Username: s.conf.Username,
 	}, nil
 }
