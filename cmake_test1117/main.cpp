@@ -15,8 +15,6 @@
 
 #include "mainwindow.h"
 #include <QApplication>
-#include <QScreen>
-#include <QGuiApplication>
 
 int main(int argc, char* argv[])
 {
@@ -27,42 +25,10 @@ int main(int argc, char* argv[])
 #endif
     
     QApplication a(argc, argv);
-    
-    // 设计分辨率
-    const int designWidth = 1920;
-    const int designHeight = 1080;
-    
     MainWindow w;
     
-    // 获取主屏幕信息
-    QScreen *screen = QGuiApplication::primaryScreen();
-    if (screen) {
-        QRect screenGeometry = screen->availableGeometry();
-        int screenWidth = screenGeometry.width();
-        int screenHeight = screenGeometry.height();
-        
-        // 根据屏幕分辨率调整窗口大小
-        double scaleX = static_cast<double>(screenWidth) / designWidth;
-        double scaleY = static_cast<double>(screenHeight) / designHeight;
-        double scale = qMin(scaleX, scaleY);  // 取较小值以保持纵横比
-        
-        int windowWidth = static_cast<int>(designWidth * scale);
-        int windowHeight = static_cast<int>(designHeight * scale);
-        
-        // 如果屏幕足够大，使用设计尺寸；否则使用缩放后的尺寸
-        if (screenWidth >= designWidth && screenHeight >= designHeight) {
-            w.resize(designWidth, designHeight);
-        } else {
-            w.resize(windowWidth, windowHeight);
-        }
-        
-        // 居中显示窗口
-        w.move((screenWidth - w.width()) / 2, (screenHeight - w.height()) / 2);
-    } else {
-        // 如果无法获取屏幕信息，使用默认设计尺寸
-        w.resize(designWidth, designHeight);
-    }
+    // 一打开就最大化显示，自动适配当前屏幕分辨率
+    w.showMaximized();
     
-    w.show();
     return a.exec();
 }
