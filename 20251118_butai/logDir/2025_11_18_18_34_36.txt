@@ -1,0 +1,19 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-11-18 18:34:36
+=========================================
+
+[2025-11-18 18:34:36.181] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-11-18 18:34:37.391] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 18:34:53.322] [DEBUG] 进行足底压力数据解析的数据文件路径H:/desk/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/data_jingtai/2024_11_18_18_05_05.txt
+[2025-11-18 18:35:01.545] [DEBUG] 双足重心拟合椭圆信息 Ellipse (a, b, angle, area, eccentricity)0.748118 0.748118 0.37609 63.7738 0.883918 0.864453
+[2025-11-18 18:35:01.548] [DEBUG] 左脚重心拟合椭圆信息 Ellipse (a长轴半径, b短轴半径, angle倾斜角, area面积, 离心率)0.748118 0.391082 0.0221271 89.0736 0.0271858 0.998398 12.9714 24.1844
+[2025-11-18 18:35:01.551] [DEBUG] 右脚重心拟合椭圆信息 Ellipse (a, b, angle, area, eccentricity)0.7481181.008070.071563697.91540.2266380.997477
+[2025-11-18 18:35:01.683] [DEBUG] 该足底压力报告文件名：H:/desk/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/pdfadress/2025-11-18-18-35-01_Jingtai.pdf
+[2025-11-18 18:35:01.687] [DEBUG] 进入生成足底压力报告2479 3508
+[2025-11-18 18:35:01.786] [DEBUG] 结束足底压力报告绘制
+[2025-11-18 18:35:01.919] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 18:35:01.943] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 18:35:23.093] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 18:35:23.117] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0

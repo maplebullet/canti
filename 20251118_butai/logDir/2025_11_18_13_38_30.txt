@@ -1,0 +1,15 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-11-18 13:38:30
+=========================================
+
+[2025-11-18 13:38:30.119] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-11-18 13:38:31.961] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 13:38:33.343] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 13:38:33.388] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 13:38:34.270] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 13:38:49.796] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 13:38:49.831] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 13:39:43.396] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 13:39:46.353] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0

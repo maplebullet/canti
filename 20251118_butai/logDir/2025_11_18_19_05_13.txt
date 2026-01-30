@@ -1,0 +1,44 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-11-18 19:05:13
+=========================================
+
+[2025-11-18 19:05:13.846] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-11-18 19:05:15.198] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:16.886] [DEBUG] 进行步态数据解析的数据文件路径
+[2025-11-18 19:05:17.411] [DEBUG] 该步态分析报告文件名：H:/desk/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/pdfadress/2025-11-18-19-05-17_Dongtai.pdf
+[2025-11-18 19:05:17.414] [DEBUG] 进入生成步态报告2479 3508
+[2025-11-18 19:05:17.535] [DEBUG] 结束步态报告绘制
+[2025-11-18 19:05:17.689] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:17.728] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:22.339] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:22.379] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:23.194] [DEBUG] 进行足底压力数据解析的数据文件路径
+[2025-11-18 19:05:23.267] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:23.313] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:27.415] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:27.461] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:41.218] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:41.260] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:41.344] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:41.386] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:41.555] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:05:41.609] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:18.313] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:20.811] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:20.853] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:40.614] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:40.674] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:41.746] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:47.710] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:06:47.766] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:40.111] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:43.213] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:43.240] [DEBUG] 进行足底压力数据解析的数据文件路径
+[2025-11-18 19:07:43.306] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:43.358] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:47.733] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:47.784] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:49.110] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-11-18 19:07:49.164] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0

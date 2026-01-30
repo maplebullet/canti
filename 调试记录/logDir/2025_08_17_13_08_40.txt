@@ -1,0 +1,26 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-08-17 13:08:40
+=========================================
+
+[2025-08-17 13:08:40.278] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-08-17 13:08:41.610] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:43.420] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:44.920] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:44.931] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:51.850] [DEBUG] 点击开始静态测试时生成的保存数据的文件地址F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/data_jingtai/2025_08_17_13_08_51_dataRecord_Jingtai.txt
+[2025-08-17 13:08:52.994] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:54.498] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:54.508] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:55.409] [DEBUG] 进行足底压力数据解析的数据文件路径F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/data_jingtai/2025_08_17_13_08_51_dataRecord_Jingtai.txt
+[2025-08-17 13:08:55.683] [DEBUG] 双足重心拟合椭圆信息 Ellipse (a, b, angle, area, eccentricity)4.72249e-06 4.72249e-06 2.72653e-06 135 4.04512e-11 0.816497
+[2025-08-17 13:08:55.686] [DEBUG] 左脚重心拟合椭圆信息 Ellipse (a长轴半径, b短轴半径, angle倾斜角, area面积, 离心率)4.72249e-06 9.57537e-07 0 90 0 1 11.5526 20.2082
+[2025-08-17 13:08:55.689] [DEBUG] 右脚重心拟合椭圆信息 Ellipse (a, b, angle, area, eccentricity)4.72249e-060000nan
+[2025-08-17 13:08:55.761] [DEBUG] 该足底压力报告文件名：F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/pdfadress/2025-08-17-13-08-55_Jingtai.pdf
+[2025-08-17 13:08:55.762] [DEBUG] 进入生成足底压力报告2479 3508
+[2025-08-17 13:08:55.785] [DEBUG] 结束足底压力报告绘制
+[2025-08-17 13:08:55.816] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:55.823] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:58.933] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 13:08:58.943] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0

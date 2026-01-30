@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>model.onnx</file>
+        <file>icon/background.png</file>
+        <file>icon/max.png</file>
+        <file>icon/min.png</file>
+        <file>icon/restore.png</file>
+        <file>icon/return.png</file>
+        <file>icon/close.png</file>
+        <file>icon/qingDaouniversity_write.png</file>
+        <file>icon/9.png</file>
+        <file>icon/11.png</file>
+        <file>icon/17.png</file>
+        <file>icon/9_long.png</file>
+        <file>icon/123.png</file>
+        <file>icon/styles.qss</file>
+        <file>icon/rect2.png</file>
+        <file>icon/background_1.png</file>
+        <file>icon/background_2.png</file>
+        <file>icon/Background_3.jpg</file>
+        <file>icon/20251224220933_1009_539.png</file>
+        <file>icon/20251224220933_1010_539.png</file>
+        <file>icon/20251224221155_1012_539.png</file>
+        <file>icon/20251224221228_1013_539.png</file>
+        <file>icon/20251224214846_998_539.png</file>
+        <file>icon/26.png</file>
+        <file>icon/12.png</file>
+        <file>icon/setiao.png</file>
+        <file>icon/jiaoxing.png</file>
+    </qresource>
+</RCC>

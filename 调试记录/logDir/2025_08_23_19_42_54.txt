@@ -1,0 +1,59 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-08-23 19:42:54
+=========================================
+
+[2025-08-23 19:42:54.016] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-08-23 19:42:55.477] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:43:46.898] [DEBUG] 进行步态数据解析的数据文件路径C:/Users/Lenovo/Desktop/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/data_dongtai/2025_08_15_14_27_33_dataRecord_Dongtai.txt
+[2025-08-23 19:44:56.643] [DEBUG] 该步态分析报告文件名：C:/Users/Lenovo/Desktop/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/pdfadress/2025-08-23-19-44-56_Dongtai.pdf
+[2025-08-23 19:44:56.650] [DEBUG] 进入生成步态报告2479 3508
+[2025-08-23 19:44:56.713] [DEBUG] 结束步态报告绘制
+[2025-08-23 19:44:56.940] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:44:56.989] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:44:58.330] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:45:03.402] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:45:03.577] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:45:08.075] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:45:08.140] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:45:08.492] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:45:14.652] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:45:14.909] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:49:43.659] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:49:43.926] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:49:45.308] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:49:45.452] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:49:47.725] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:49:48.117] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 22:49:48.153] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:36:21.920] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:36:22.872] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:36:23.024] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:36:24.409] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:36:24.454] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:36:25.167] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:05.140] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:06.043] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:06.281] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:09.572] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:09.847] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:11.705] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:16.322] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:16.500] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:16.799] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:21.599] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:21.720] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:22.168] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:28.239] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:29.375] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:37:30.068] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:49:02.293] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:49:02.369] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:49:02.701] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:49:10.901] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:49:11.072] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 23:49:11.266] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-24 00:49:08.379] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-24 00:49:12.872] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-24 01:44:59.325] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0

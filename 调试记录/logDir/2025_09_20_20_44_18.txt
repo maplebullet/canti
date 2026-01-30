@@ -1,0 +1,20 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-09-20 20:44:18
+=========================================
+
+[2025-09-20 20:44:18.243] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-09-20 20:44:21.722] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:44:24.328] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:44:26.424] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:44:26.469] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:44:49.593] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:44:49.633] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:44:56.117] [DEBUG] 点击开始静态测试时生成的保存数据的文件地址C:/Users/Lenovo/Desktop/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/data_jingtai/2025_09_20_20_44_56_dataRecord_Jingtai.txt
+[2025-09-20 20:44:56.154] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:44:56.198] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:45:01.754] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:45:01.796] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:45:02.579] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-09-20 20:45:02.621] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0

@@ -1,0 +1,20 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-08-23 19:36:16
+=========================================
+
+[2025-08-23 19:36:16.014] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-08-23 19:36:17.640] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:36:23.051] [DEBUG] 进行步态数据解析的数据文件路径C:/Users/Lenovo/Desktop/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/data_dongtai/2025_08_15_14_27_33_dataRecord_Dongtai.txt
+[2025-08-23 19:37:34.627] [DEBUG] 该步态分析报告文件名：C:/Users/Lenovo/Desktop/git_butai/build-cmake_test1117-Desktop_Qt_6_6_1_MSVC2019_64bit-Debug/pdfadress/2025-08-23-19-37-34_Dongtai.pdf
+[2025-08-23 19:37:34.633] [DEBUG] 进入生成步态报告2479 3508
+[2025-08-23 19:37:34.713] [DEBUG] 结束步态报告绘制
+[2025-08-23 19:37:34.935] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:37:34.983] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:37:39.242] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:37:39.287] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:37:40.606] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:37:40.655] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:38:02.334] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-23 19:38:02.378] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0

@@ -1,0 +1,59 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+# Qt Creator 临时文件
+*.autosave
+*.tmp
+*~
+*~RF*.*
+*.swp
+*.swo
+.DS_Store
+
+# Qt 编译产物
+build-*
+cmake-build-*
+*.o
+*.so
+*.dll
+*.exe
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+moc_*
+ui_*
+qrc_*
+
+# 日志/备份文件
+*.log
+*.bak
+*.backup

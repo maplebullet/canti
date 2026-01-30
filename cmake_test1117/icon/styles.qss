@@ -1,0 +1,18 @@
+/* 为 Form_processdata 设置背景图片 */
+Form_processdata {
+    /* 关键属性：设置背景图片 */
+    background-image: url(:/images/background.png);  /* 资源路径 */
+    
+    /* 可选属性：调整背景显示方式 */
+    background-repeat: no-repeat;    /* 不重复 */
+    background-position: center;     /* 居中显示 */
+    background-size: cover;          /* 覆盖整个控件（可能拉伸） */
+    /* 或 background-size: contain; 保持比例，可能留边 */
+    
+    /* 可选：设置背景颜色（若图片未覆盖时显示） */
+    background-color: #f0f0f0;       /* 浅灰色备用 */
+    
+    /* 可选：设置控件最小尺寸（确保图片可见） */
+    min-width: 400px;
+    min-height: 300px;
+}

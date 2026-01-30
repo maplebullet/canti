@@ -1,0 +1,35 @@
+============== Log Started ==============
+Application: cmake_test1117
+Version: 
+Timestamp: 2025-08-17 12:55:27
+=========================================
+
+[2025-08-17 12:55:27.522] [DEBUG] 界面上步态绘图区域长 宽：1331 287
+[2025-08-17 12:55:28.621] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:34.090] [DEBUG] 点击开始静态测试时生成的保存数据的文件地址F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/data_jingtai/2025_08_17_12_55_34_dataRecord_Jingtai.txt
+[2025-08-17 12:55:39.205] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:40.702] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:40.710] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:41.182] [DEBUG] 进行足底压力数据解析的数据文件路径F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/data_jingtai/2025_08_17_12_55_34_dataRecord_Jingtai.txt
+[2025-08-17 12:55:42.060] [DEBUG] 双足重心拟合椭圆信息 Ellipse (a, b, angle, area, eccentricity)1.51517e-05 1.51517e-05 8.19917e-06 121.04 3.90285e-10 0.840934
+[2025-08-17 12:55:42.062] [DEBUG] 左脚重心拟合椭圆信息 Ellipse (a长轴半径, b短轴半径, angle倾斜角, area面积, 离心率)1.51517e-05 1.1239e-05 6.48886e-06 45 2.29112e-10 0.816497 11.5526 20.2082
+[2025-08-17 12:55:42.063] [DEBUG] 右脚重心拟合椭圆信息 Ellipse (a, b, angle, area, eccentricity)1.51517e-052.52074e-051.32083e-0561.74161.04599e-090.851726
+[2025-08-17 12:55:42.127] [DEBUG] 该足底压力报告文件名：F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/pdfadress/2025-08-17-12-55-42_Jingtai.pdf
+[2025-08-17 12:55:42.129] [DEBUG] 进入生成足底压力报告2479 3508
+[2025-08-17 12:55:42.150] [DEBUG] 结束足底压力报告绘制
+[2025-08-17 12:55:42.182] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:42.190] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:43.843] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:43.849] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:44.822] [DEBUG] 进行步态数据解析的数据文件路径F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/data_dongtai/2025_08_14_21_58_16_dataRecord_Dongtai.txt
+[2025-08-17 12:55:45.238] [DEBUG] 该步态分析报告文件名：F:/2025Item/demo/FourToOne/cmake_test1117/build-Release/pdfadress/2025-08-17-12-55-45_Dongtai.pdf
+[2025-08-17 12:55:45.241] [DEBUG] 进入生成步态报告2479 3508
+[2025-08-17 12:55:45.246] [DEBUG] 结束步态报告绘制
+[2025-08-17 12:55:45.282] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:45.290] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:48.730] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:48.740] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:49.940] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:55:49.952] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:56:31.704] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
+[2025-08-17 12:56:31.734] [DEBUG] 进入步态绘图 Point_commondata posList_数据个数： 0
