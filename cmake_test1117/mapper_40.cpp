@@ -70,6 +70,19 @@ void heatMap::paintEvent(QPaintEvent *event)
     qDebug() << "Long:" << this->height() << "Width:" << this->width();
 #endif
 
+    // 计算缩放比例，保持宽高比
+    double scaleX = static_cast<double>(this->width()) / m_width;
+    double scaleY = static_cast<double>(this->height()) / m_height;
+    double scale = qMin(scaleX, scaleY);  // 取较小值保持宽高比
+    
+    // 计算居中偏移
+    int offsetX = (this->width() - m_width * scale) / 2;
+    int offsetY = (this->height() - m_height * scale) / 2;
+    
+    // 应用缩放和偏移
+    painter.translate(offsetX, offsetY);
+    painter.scale(scale, scale);
+
 //绘制做表格，可注释掉
     // for(int i=0;i<m_width+10;i+=10){
     //     painter.drawLine(i, 0, i, m_height);
