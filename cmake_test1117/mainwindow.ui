@@ -15,7 +15,7 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>1920</width>
+    <width>16777215</width>
     <height>16777215</height>
    </size>
   </property>
@@ -700,10 +700,16 @@ font-size: 30px;</string>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QWidget" name="widget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
-            <width>410</width>
-            <height>410</height>
+            <width>200</width>
+            <height>200</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -744,16 +750,10 @@ font-size: 30px;</string>
         <item>
          <widget class="QFrame" name="frame_3">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>1345</width>
-            <height>16777215</height>
-           </size>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -767,16 +767,16 @@ font-size: 30px;</string>
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
             <widget class="QWidget" name="widget_2" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="minimumSize">
               <size>
-               <width>1331</width>
-               <height>287</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>287</height>
+               <width>400</width>
+               <height>100</height>
               </size>
              </property>
              <property name="styleSheet">
