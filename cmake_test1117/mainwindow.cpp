@@ -9,9 +9,10 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent, double scaleFactor)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , m_scaleFactor(scaleFactor)
 {
     ui->setupUi(this);
 
@@ -41,21 +42,35 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_timerMain = new QTimer(this);
 
+    // 根据缩放比例调整widget尺寸
+    int scaledWidget40Width = static_cast<int>(410 * m_scaleFactor);
+    int scaledWidget40Height = static_cast<int>(410 * m_scaleFactor);
+    ui->widget->setMinimumSize(scaledWidget40Width, scaledWidget40Height);
+    ui->widget->setMaximumSize(scaledWidget40Width, scaledWidget40Height);
+    
     ImgWidth_40 =  (x_num_40+1)*10;//
     ImgHeight_40 = (y_num_40+1)*10;//410
     m_draw_pt_40=intialPtSize(40,40,10,10);//足底压力测试
     mapper_40_=new heatMap(15,ImgWidth_40,ImgHeight_40,200,ui->widget);
-    mapper_40_->setGeometry(0,0,ImgWidth_40,ImgHeight_40);
+    mapper_40_->setGeometry(0,0,scaledWidget40Width,scaledWidget40Height);
 
     ////qDebug()<<m_draw_pt<<"m_draw_pt";
 
+    // 根据缩放比例调整widget_2尺寸
+    int scaledWidget2Width = static_cast<int>(1331 * m_scaleFactor);
+    int scaledWidget2Height = static_cast<int>(287 * m_scaleFactor);
+    ui->widget_2->setMinimumSize(scaledWidget2Width, scaledWidget2Height);
+    ui->widget_2->setMaximumSize(16777215, scaledWidget2Height);  // 宽度不限制，高度固定
+    
+    // frame_3也需要调整
+    ui->frame_3->setMaximumSize(static_cast<int>(1345 * m_scaleFactor), 16777215);
 
     ImgWidth_main =  (x_num_main+1)*11; //300 121*11=1331
     ImgHeight_main = (y_num_main+1)*7; //41*7=287
     qDebug()<<ImgWidth_main<<ImgWidth_main<<"ImgWidth_main";
     m_draw_pt=intialPtSize(120,40,11,7);//205,,8 47  //步态测试  实际垫子尺寸3.9×0.86米
     mapper_ = new heatmapper(DEFAULT_RADIUS, DEFAULT_OPACITY, m_draw_pt, ImgWidth_main, ImgHeight_main, ui->widget_2);
-    mapper_->setGeometry(0,0,ImgWidth_main,ImgHeight_main);
+    mapper_->setGeometry(0,0,scaledWidget2Width,scaledWidget2Height);
 //widget_2
     LOG_DEBUG("界面上步态绘图区域长 宽："+QString::number(ui->widget_2->width())+" "+QString::number(ui->widget_2->height()));
     // 初始化绘图线程

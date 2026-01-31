@@ -70,6 +70,14 @@ void heatMap::paintEvent(QPaintEvent *event)
     qDebug() << "Long:" << this->height() << "Width:" << this->width();
 #endif
 
+    // 计算缩放比例，将内部图像缩放到widget实际大小
+    double scaleX = static_cast<double>(this->width()) / m_width;
+    double scaleY = static_cast<double>(this->height()) / m_height;
+    
+    // 使用缩放绘制
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
+    painter.scale(scaleX, scaleY);
+
 //绘制做表格，可注释掉
     // for(int i=0;i<m_width+10;i+=10){
     //     painter.drawLine(i, 0, i, m_height);

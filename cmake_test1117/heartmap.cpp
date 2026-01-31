@@ -87,8 +87,15 @@ void heatmapper::paintEvent(QPaintEvent*)
 #ifdef QT_DEBUG
     qDebug() << "Long:" << this->height() << "Width:" << this->width();
 #endif
-    // p.setRenderHint(QPainter::Antialiasing);
-    //
+    
+    // 计算缩放比例，将内部图像缩放到widget实际大小
+    double scaleX = static_cast<double>(this->width()) / ImgWidth_main;
+    double scaleY = static_cast<double>(this->height()) / ImgHeight_main;
+    
+    // 使用缩放绘制
+    p.setRenderHint(QPainter::SmoothPixmapTransform);
+    p.scale(scaleX, scaleY);
+    
     //绘制一个黑色网格，便于查看渐变色
     // ImgWidth_main =  (x_num_main+1)*11; //300 121*11=1331
     // ImgHeight_main = (y_num_main+1)*7; //41*7=287

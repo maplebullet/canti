@@ -15,6 +15,7 @@
 
 #include "mainwindow.h"
 #include <QApplication>
+#include <QScreen>
 
 int main(int argc, char* argv[])
 {
@@ -25,7 +26,20 @@ int main(int argc, char* argv[])
 #endif
     
     QApplication a(argc, argv);
-    MainWindow w;
+    
+    // 获取屏幕分辨率，计算缩放比例（以1920x1080为基准）
+    QScreen *screen = QGuiApplication::primaryScreen();
+    double scaleFactor = 1.0;
+    if (screen) {
+        QRect screenGeometry = screen->availableGeometry();
+        int screenWidth = screenGeometry.width();
+        // 以1920为基准计算缩放比例
+        scaleFactor = static_cast<double>(screenWidth) / 1920.0;
+        // 限制缩放范围在0.5到2.0之间
+        scaleFactor = qBound(0.5, scaleFactor, 2.0);
+    }
+    
+    MainWindow w(nullptr, scaleFactor);
     
     // 一打开就最大化显示，自动适配当前屏幕分辨率
     w.showMaximized();
