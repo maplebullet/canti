@@ -15,11 +15,34 @@
 
 #include "mainwindow.h"
 #include <QApplication>
+#include <QScreen>
 
 int main(int argc, char* argv[])
 {
+    // 启用高DPI缩放支持（Qt 5.6 - Qt 5.x，Qt 6默认启用）
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
+    
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    
+    // 获取屏幕分辨率，计算缩放比例（以1920x1080为基准）
+    QScreen *screen = QGuiApplication::primaryScreen();
+    double scaleFactor = 1.0;
+    if (screen) {
+        QRect screenGeometry = screen->availableGeometry();
+        int screenWidth = screenGeometry.width();
+        // 以1920为基准计算缩放比例
+        scaleFactor = static_cast<double>(screenWidth) / 1920.0;
+        // 限制缩放范围在0.5到2.0之间
+        scaleFactor = qBound(0.5, scaleFactor, 2.0);
+    }
+    
+    MainWindow w(nullptr, scaleFactor);
+    
+    // 一打开就最大化显示，自动适配当前屏幕分辨率
+    w.showMaximized();
+    
     return a.exec();
 }

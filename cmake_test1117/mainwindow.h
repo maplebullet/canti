@@ -53,8 +53,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr, double scaleFactor = 1.0);
     ~MainWindow();
+    
+    // 分辨率适配缩放比例
+    double m_scaleFactor;
+    
     QAction* setPercentageAction;
     QSerialPort* serial;
     QPushButton* portBox1;
