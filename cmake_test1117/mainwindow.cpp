@@ -1292,6 +1292,15 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
+    // 如果正在动态测试中，先自动停止测试
+    if(ui->pushButton_2->text()=="正在动态检测中"){
+        ui->pushButton_2->setText("开始动态测试");
+        m_pSerialPortThread->stopCheck();
+        m_pSerialPortThread->deleteAll();
+        stopSerial();  // 关闭串口
+        LOG_DEBUG("动态数据分析：自动停止动态测试");
+    }
+    
     //测试cop数据
     isResult=true;
    //globaldata::dataRecordPath_dongtai= QCoreApplication::applicationDirPath()+"/data_dongtai/"+"2025_09_23_11_12_46_dataRecord_Dongtai.txt";
@@ -1364,6 +1373,13 @@ void MainWindow::on_pushButton_4_clicked()
 //解析静态数据
 void MainWindow::on_pushButton_5_clicked()
 {
+    // 如果正在静态测试中，先自动停止测试
+    if(ui->pushButton->text()=="正在检测中"){
+        ui->pushButton->setText("开始静态测试");
+        QMetaObject::invokeMethod(serialPort_JingTai, "requestClose", Qt::QueuedConnection);
+        LOG_DEBUG("静态数据分析：自动停止静态测试");
+    }
+    
     // === 1. 输入校验 ===
     // QString id = ui->lineEdit_id->text().trimmed();
     // QString name = ui->lineEdit_name->text().trimmed();
