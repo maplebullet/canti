@@ -87,20 +87,6 @@ void heatmapper::paintEvent(QPaintEvent*)
 #ifdef QT_DEBUG
     qDebug() << "Long:" << this->height() << "Width:" << this->width();
 #endif
-    
-    // 计算缩放比例，保持宽高比
-    double scaleX = static_cast<double>(this->width()) / ImgWidth_main;
-    double scaleY = static_cast<double>(this->height()) / ImgHeight_main;
-    double scale = qMin(scaleX, scaleY);  // 取较小值保持宽高比
-    
-    // 计算居中偏移
-    int offsetX = (this->width() - ImgWidth_main * scale) / 2;
-    int offsetY = (this->height() - ImgHeight_main * scale) / 2;
-    
-    // 应用缩放和偏移
-    p.translate(offsetX, offsetY);
-    p.scale(scale, scale);
-    
     // p.setRenderHint(QPainter::Antialiasing);
     //
     //绘制一个黑色网格，便于查看渐变色
