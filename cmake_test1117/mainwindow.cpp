@@ -45,11 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
     ImgHeight_40 = (y_num_40+1)*10;//410
     m_draw_pt_40=intialPtSize(40,40,10,10);//足底压力测试
     mapper_40_=new heatMap(15,ImgWidth_40,ImgHeight_40,200,ui->widget);
-    
-    // 为widget设置布局，使热力图控件能够自适应父widget大小
-    QVBoxLayout *widgetLayout = new QVBoxLayout(ui->widget);
-    widgetLayout->setContentsMargins(0, 0, 0, 0);
-    widgetLayout->addWidget(mapper_40_);
+    mapper_40_->setGeometry(0,0,ImgWidth_40,ImgHeight_40);
 
     ////qDebug()<<m_draw_pt<<"m_draw_pt";
 
@@ -59,11 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug()<<ImgWidth_main<<ImgWidth_main<<"ImgWidth_main";
     m_draw_pt=intialPtSize(120,40,11,7);//205,,8 47  //步态测试  实际垫子尺寸3.9×0.86米
     mapper_ = new heatmapper(DEFAULT_RADIUS, DEFAULT_OPACITY, m_draw_pt, ImgWidth_main, ImgHeight_main, ui->widget_2);
-    
-    // 为widget_2设置布局，使热力图控件能够自适应父widget大小
-    QVBoxLayout *widget2Layout = new QVBoxLayout(ui->widget_2);
-    widget2Layout->setContentsMargins(0, 0, 0, 0);
-    widget2Layout->addWidget(mapper_);
+    mapper_->setGeometry(0,0,ImgWidth_main,ImgHeight_main);
 //widget_2
     LOG_DEBUG("界面上步态绘图区域长 宽："+QString::number(ui->widget_2->width())+" "+QString::number(ui->widget_2->height()));
     // 初始化绘图线程
